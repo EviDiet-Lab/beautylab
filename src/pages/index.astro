@@ -1,17 +1,126 @@
 ---
-// Welcome to Astro! https://docs.astro.build
-// Beautylab — EviDiet-Lab
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Beautylab</title>
-  </head>
-  <body>
-    <h1>Beautylab</h1>
-    <p>Welcome to Beautylab — by EviDiet-Lab.</p>
-  </body>
-</html>
+<BaseLayout title="BeautyLab - 美容と健康のサイエンスメディア" description="20代のための、トレンド×エビデンスの美容・ダイエット情報メディア。SNSで話題のトレンドを科学的に検証します。">
+  <section class="hero section">
+    <div class="container hero-content">
+      <h1 class="gradient-text">キレイを、<br />サイエンスする。</h1>
+      <p>SNSで話題のトレンドを科学的に検証。<br />エビデンスに基づく美容と健康情報をお届けします。</p>
+      <a href="/beautylab/categories/diet" class="btn btn-primary">記事を読む</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://picsum.photos/seed/beautylab-hero/800/500" alt="BeautyLab" loading="eager" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="gradient-text">カテゴリから探す</h2>
+      <div class="category-grid">
+        <a href="/beautylab/categories/diet" class="card category-card">
+          <span class="category-icon">🌸</span>
+          <h3>ダイエット</h3>
+          <p>トレンドを科学検証！効果的なダイエット</p>
+        </a>
+        <a href="/beautylab/categories/exercise" class="card category-card">
+          <span class="category-icon">💫</span>
+          <h3>運動</h3>
+          <p>SNSでバズったエクササイズを検証</p>
+        </a>
+        <a href="/beautylab/categories/recipe" class="card category-card">
+          <span class="category-icon">🥤</span>
+          <h3>レシピ</h3>
+          <p>映える！美味しい！美容レシピ</p>
+        </a>
+        <a href="/beautylab/categories/mental" class="card category-card">
+          <span class="category-icon">💕</span>
+          <h3>メンタル</h3>
+          <p>心もキレイに整えるセルフケア</p>
+        </a>
+        <a href="/beautylab/categories/sleep" class="card category-card">
+          <span class="category-icon">🌙</span>
+          <h3>睡眠</h3>
+          <p>美容睡眠の質を最大化する方法</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-tint">
+    <div class="container">
+      <h2 class="gradient-text">最新の記事</h2>
+      <div class="article-list">
+        <article class="card article-card">
+          <img src="https://picsum.photos/seed/beautylab1/400/250" alt="記事イメージ" loading="lazy" />
+          <div class="article-card-body">
+            <span class="tag">ダイエット</span>
+            <h3>美容栄養素完全ガイド：ビタミン・ミネラル・抗酸化</h3>
+            <p class="article-date">2025-06-18</p>
+            <a href="/beautylab/posts/beauty-nutrients-guide" class="btn btn-outline">続きを読む</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-bg) 80%);
+  }
+  .hero-content { flex: 1; }
+  .hero-content h1 { font-size: var(--font-size-3xl); }
+  .hero-image { flex: 1; }
+  .hero-image img {
+    border-radius: var(--border-radius-lg);
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+  .category-card {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all 0.3s;
+  }
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    opacity: 1;
+  }
+  .category-icon { font-size: 2rem; display: block; margin-bottom: var(--space-sm); }
+  .category-card h3 { font-size: var(--font-size-lg); margin-top: 0; }
+  .category-card p { font-size: var(--font-size-sm); color: var(--color-text-light); }
+
+  .bg-tint { background: linear-gradient(135deg, rgba(255,182,193,0.1), rgba(221,160,221,0.1)); }
+
+  .article-list { display: flex; flex-direction: column; gap: var(--space-lg); }
+  .article-card {
+    display: flex;
+    gap: var(--space-lg);
+    overflow: hidden;
+  }
+  .article-card img {
+    width: 280px;
+    min-height: 180px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .article-card-body { flex: 1; }
+  .article-date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+
+  @media (max-width: 640px) {
+    .hero { flex-direction: column; }
+    .article-card { flex-direction: column; }
+    .article-card img { width: 100%; }
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

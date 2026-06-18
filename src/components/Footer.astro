@@ -1,0 +1,90 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container-wide footer-grid">
+    <div class="footer-brand">
+      <h3>✨ BeautyLab</h3>
+      <p>20代のための、美容と健康のサイエンスメディア</p>
+    </div>
+    <div class="footer-links">
+      <h4>カテゴリ</h4>
+      <ul>
+        <li><a href="/beautylab/categories/diet">ダイエット</a></li>
+        <li><a href="/beautylab/categories/exercise">運動</a></li>
+        <li><a href="/beautylab/categories/recipe">レシピ</a></li>
+        <li><a href="/beautylab/categories/mental">メンタル</a></li>
+        <li><a href="/beautylab/categories/sleep">睡眠</a></li>
+      </ul>
+    </div>
+    <div class="footer-info">
+      <h4>インフォメーション</h4>
+      <ul>
+        <li><a href="/beautylab/about">サイトについて</a></li>
+        <li><a href="/beautylab/contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {currentYear} EviDiet-Lab / BeautyLab. All rights reserved.</p>
+  </div>
+</footer>
+
+<style is:global>
+  .site-footer {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    margin-top: var(--space-3xl);
+    padding: var(--space-2xl) 0 0;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+  .site-footer h3 {
+    font-size: var(--font-size-lg);
+    color: #fff;
+    margin-bottom: var(--space-sm);
+    margin-top: 0;
+  }
+  .site-footer h4 {
+    font-size: var(--font-size-sm);
+    color: #fff;
+    opacity: 0.9;
+    margin-bottom: var(--space-sm);
+    margin-top: 0;
+  }
+  .site-footer p {
+    font-size: var(--font-size-sm);
+    color: rgba(255,255,255,0.85);
+  }
+  .site-footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  .site-footer ul li {
+    margin-bottom: var(--space-xs);
+  }
+  .site-footer ul a {
+    font-size: var(--font-size-sm);
+    color: #fff;
+    font-weight: 500;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.25);
+    padding: var(--space-md) 0;
+    text-align: center;
+  }
+  .footer-bottom p {
+    font-size: var(--font-size-xs);
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

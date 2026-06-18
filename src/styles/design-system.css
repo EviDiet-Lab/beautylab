@@ -1,0 +1,196 @@
+/* ========================================
+   BeautyLab デザインシステム
+   ターゲット: 20代美容志向
+   トーン: トレンド感・ポップ・SNS映え
+   ======================================== */
+
+:root {
+  /* ---- カラーテーマ ---- */
+  --color-primary: #FFB6C1;       /* ライトピンク */
+  --color-secondary: #DDA0DD;     /* プラム */
+  --color-text: #4a3f4a;
+  --color-text-light: #8a7a8a;
+  --color-bg: #FFF5F5;           /* ホワイト */
+  --color-bg-card: #ffffff;
+  --color-accent: #FF69B4;       /* ホットピンク */
+  --color-border: #f0dcdc;
+
+  /* ---- タイポグラフィ ---- */
+  --font-heading: 'M PLUS Rounded 1c', 'Rounded Mplus 1c', 'Hiragino Maru Gothic ProN', 'Yu Gothic Rounded', sans-serif;
+  --font-body: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'Yu Gothic Rounded', 'Noto Sans JP', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.625rem;
+  --font-size-3xl: 2rem;
+
+  /* ---- スペーシング ---- */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3.5rem;
+
+  /* ---- レイアウト ---- */
+  --max-width: 700px;
+  --max-width-wide: 940px;
+  --border-radius: 16px;
+  --border-radius-lg: 24px;
+
+  /* ---- シャドウ ---- */
+  --shadow-sm: 0 2px 8px rgba(255,182,193,0.15);
+  --shadow-md: 0 4px 16px rgba(255,182,193,0.2);
+  --shadow-lg: 0 8px 32px rgba(255,182,193,0.25);
+}
+
+/* ---- グローバルリセット＆ベース ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.85;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--font-size-3xl); margin-bottom: var(--space-lg); }
+h2 { font-size: var(--font-size-2xl); margin-bottom: var(--space-md); margin-top: var(--space-2xl); background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+h3 { font-size: var(--font-size-xl); margin-bottom: var(--space-sm); margin-top: var(--space-xl); }
+
+p { margin-bottom: var(--space-md); }
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+a:hover { opacity: 0.7; text-decoration: underline; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+ul, ol { padding-left: var(--space-lg); margin-bottom: var(--space-md); }
+li { margin-bottom: var(--space-xs); }
+
+blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-md) 0;
+  background: rgba(255,182,193,0.08);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* ---- グラデーション装飾 ---- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- ボタン ---- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  opacity: 1;
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-accent);
+  border-radius: 50px;
+}
+
+/* ---- カード ---- */
+.card {
+  background: var(--color-bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---- コンテナ ---- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+.container-wide {
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ---- セクション ---- */
+.section {
+  padding: var(--space-3xl) 0;
+}
+
+/* ---- タグ ---- */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #fff;
+  margin-right: var(--space-xs);
+}
+
+/* ---- レスポンシブ ---- */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  h1 { font-size: var(--font-size-2xl); }
+  h2 { font-size: var(--font-size-xl); }
+  .section { padding: var(--space-2xl) 0; }
+}
